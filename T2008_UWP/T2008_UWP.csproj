@@ -122,11 +122,30 @@
     <Compile Include="Lap1\Lap1.xaml.cs">
       <DependentUpon>Lap1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lap\Lap2\Contact.xaml.cs">
+      <DependentUpon>Contact.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lap\Lap2\Customer.xaml.cs">
+      <DependentUpon>Customer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lap\Lap2\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lap\Lap2\LapMain.xaml.cs">
+      <DependentUpon>LapMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lap\Lap2\Mail.xaml.cs">
+      <DependentUpon>Mail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lap\Lap2\Modal\Contacts.cs" />
+    <Compile Include="Lap\Lap2\Modal\Custom.cs" />
+    <Compile Include="Lap\Lap2\Modal\Mails.cs" />
+    <Compile Include="Lap\Lap2\Modal\MenuItem.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Modal\Email.cs" />
-    <Compile Include="Modal\MenuItem.cs" />
+    <Compile Include="Models\Email.cs" />
+    <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Pages\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -159,6 +178,26 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Lap\Lap2\Contact.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lap\Lap2\Customer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lap\Lap2\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lap\Lap2\LapMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lap\Lap2\Mail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -177,6 +216,7 @@
       <Version>6.2.12</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
