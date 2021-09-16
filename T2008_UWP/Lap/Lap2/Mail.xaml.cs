@@ -23,47 +23,29 @@ namespace T2008_UWP.Lap.Lap2
     /// </summary>
     public sealed partial class Mail : Page
     {
+        List<Mails> _data { get; set; } = new List<Mails>();
+
         public Mail()
         {
             this.InitializeComponent();
+            if (_data.Count == 0)
+            {
+                var a = new Mails() { Title = "BCT", Email = "BCT@gmail.com", Content = "Test1" };
+                var b = new Mails() { Title = "HAT", Email = "HAT@gmail.com", Content = "Tse2" };
+                var c = new Mails() { Title = "TDQ", Email = "TDQ@gmail.com", Content = "Ttse3" };
+                _data.Add(a);
+                _data.Add(b);
+                _data.Add(c);
+            }
         }
-        private static List<Mails> cus = new List<Mails>();
         private void Home(object sender, RoutedEventArgs e)
         {
             LapMain._frame.Navigate(typeof(Home));
         }
-        private void Submit(object sender, RoutedEventArgs e)
+        private void Add(object sender, RoutedEventArgs e)
         {
-            if (inputEmail.Text == "" || inpuTitle.Text == "")
-            {
-                errors.Text = "Vui lòng nhập đủ thông tin!";
-            }
-            else if (inputContent.Text == "")
-            {
-                errors.Text = "Vui lòng nhập đủ thông tin!";
-
-            }
-            else
-            {
-                errors.Text = "";
-                //  string txt = inputMail.Text + "--" + inputSubject.Text + "\n --------------------------------------";
-                var m = new Mails() { Email = inputEmail.Text, Title = inpuTitle.Text, Content = inputContent.Text };
-                cus.Add(m);
-                PrintMails();
-                inpuTitle.Text = "";
-                inputEmail.Text = "";
-                inputContent.Text = "";
-            }
-
+            LapMain._frame.Navigate(typeof(MailAdd));
         }
-
-        private void PrintMails()
-        {
-            txtData.Text = "";
-            foreach (Mails m in cus)
-            {
-                txtData.Text += m.Email + "--" + m.Title + "--" + m.Content + "\n";
-            }
-        }
+        
     }
 }

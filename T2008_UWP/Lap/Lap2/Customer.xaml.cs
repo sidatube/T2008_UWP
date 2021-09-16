@@ -23,54 +23,35 @@ namespace T2008_UWP.Lap.Lap2
     /// </summary>
     public sealed partial class Customer : Page
     {
-       
+        List<Custom> _data { get; set; } = new List<Custom>();
+
         public Customer()
         {
             this.InitializeComponent();
+            if (_data.Count == 0)
+            {
+                var a = new Custom() { Name = "BCT", Tel = "123125546", Address = "Address 1", Gender = "Male" };
+                var b = new Custom() { Name = "HAT", Tel = "123125543", Address = "Address 2", Gender = "Female" };
+                var c = new Custom() { Name = "TDQ", Tel = "123125575", Address = "Address 3", Gender = "Female" };
+                _data.Add(a);
+                _data.Add(b);
+                _data.Add(c);
+            }
         }
         private static List<Custom> cus = new List<Custom>();
         private void Home(object sender, RoutedEventArgs e)
         {
             LapMain._frame.Navigate(typeof(Home));
         }
-        private void Submit(object sender, RoutedEventArgs e)
+        private void Add(object sender, RoutedEventArgs e)
         {
-            if (inputName.Text == "" || inpuTel.Text == "")
-            {
-                errors.Text = "Vui lòng nhập đủ thông tin!";
-            }else if (inputGender.Text == "" || inputAddres.Text == "")
-            {
-                errors.Text = "Vui lòng nhập đủ thông tin!";
-
-            }
-            else
-            {
-                errors.Text = "";
-                //  string txt = inputMail.Text + "--" + inputSubject.Text + "\n --------------------------------------";
-                var m = new Custom() { Name = inputName.Text, Tel = inpuTel.Text, Gender = inputGender.Text,Address = inputAddres.Text };
-                cus.Add(m);
-                PrintMails();
-                inputName.Text = "";
-                inpuTel.Text = "";
-                inputGender.Text = "";
-                inputAddres.Text = "";
-            }
-
+            LapMain._frame.Navigate(typeof(CustomerAdd));
         }
 
-        private void PrintMails()
-        {
-            txtData.Text = "";
-            foreach (Custom m in cus)
-            {
-                txtData.Text += m.Name + "--" + m.Tel + "--" + m.Gender +"--" + m.Address + "\n";
-            }
-        }
+     
 
-        private void inputGender_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            string text = e.AddedItems[0].ToString();
-            inputGender.Text = text;
-        }
+        
+
+        
     }
 }

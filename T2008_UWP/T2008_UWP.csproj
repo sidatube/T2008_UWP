@@ -125,8 +125,14 @@
     <Compile Include="Lap\Lap2\Contact.xaml.cs">
       <DependentUpon>Contact.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lap\Lap2\ContactAdd.xaml.cs">
+      <DependentUpon>ContactAdd.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lap\Lap2\Customer.xaml.cs">
       <DependentUpon>Customer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lap\Lap2\CustomerAdd.xaml.cs">
+      <DependentUpon>CustomerAdd.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lap\Lap2\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
@@ -136,6 +142,9 @@
     </Compile>
     <Compile Include="Lap\Lap2\Mail.xaml.cs">
       <DependentUpon>Mail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lap\Lap2\MailAdd.xaml.cs">
+      <DependentUpon>MailAdd.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lap\Lap2\Modal\Contacts.cs" />
     <Compile Include="Lap\Lap2\Modal\Custom.cs" />
@@ -182,7 +191,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Lap\Lap2\ContactAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Lap\Lap2\Customer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lap\Lap2\CustomerAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -195,6 +212,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lap\Lap2\Mail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lap\Lap2\MailAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
