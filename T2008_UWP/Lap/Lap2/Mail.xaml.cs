@@ -46,6 +46,21 @@ namespace T2008_UWP.Lap.Lap2
         {
             LapMain._frame.Navigate(typeof(MailAdd));
         }
-        
+
+        private void Menu_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (Menu.Items != null)
+                foreach (Mails item in _data)
+                {
+                    Menu.Items.Add(item);
+                }
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Mails item = e.Parameter as Mails;
+            if (item != null)
+                _data.Add(item);
+
+        }
     }
 }

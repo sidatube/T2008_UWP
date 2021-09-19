@@ -23,7 +23,6 @@ namespace T2008_UWP.Lap.Lap2
     /// </summary>
     public sealed partial class MailAdd : Page
     {
-        private static List<Mails> cus = new List<Mails>();
         public MailAdd()
         {
             this.InitializeComponent();
@@ -43,18 +42,18 @@ namespace T2008_UWP.Lap.Lap2
             {
                 errors.Text = "";
                 //  string txt = inputMail.Text + "--" + inputSubject.Text + "\n --------------------------------------";
-                var m = new Mails() { Email = inputEmail.Text, Title = inpuTitle.Text, Content = inputContent.Text };
-                cus.Add(m);
+                Mails m = new Mails() { Email = inputEmail.Text, Title = inpuTitle.Text, Content = inputContent.Text };
                 inpuTitle.Text = "";
                 inputEmail.Text = "";
                 inputContent.Text = "";
+                LapMain._frame.Navigate(typeof(Mail),m);
             }
 
         }
 
         public void Back(object sender, RoutedEventArgs e)
         {
-            LapMain._frame.Navigate(typeof(Contact));
+            LapMain._frame.Navigate(typeof(Mail));
         }
     }
 }

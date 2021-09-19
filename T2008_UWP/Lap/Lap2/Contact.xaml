@@ -23,7 +23,7 @@
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0" >
                 <TextBlock HorizontalAlignment="Center" Margin="0,85,0,0" Text="Contacts Box" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16"/>
-                <ListView HorizontalAlignment="Center"   x:Name="Menu" Margin="0,10,0,0" RelativePanel.Below="click" ItemsSource="{x:Bind Data}">
+                <ListView HorizontalAlignment="Center" Loaded="Menu_Loaded"  x:Name="Menu" Margin="0,10,0,0" RelativePanel.Below="click">
                     <ListView.ItemTemplate >
                         <DataTemplate x:DataType="models:Contacts">
                             <Grid>

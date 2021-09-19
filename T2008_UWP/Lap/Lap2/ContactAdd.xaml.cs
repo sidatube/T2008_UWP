@@ -49,13 +49,16 @@ namespace T2008_UWP.Lap.Lap2
             {
                 errors.Text = "";
                 //  string txt = inputMail.Text + "--" + inputSubject.Text + "\n --------------------------------------";               
-                Contact Child = new Contact(inputName.Text, inpuEmail.Text, inputContent.Text);
-               
+                string Name = inputName.Text;
+                string Email= inpuEmail.Text;
+                string Content= inputContent.Text;
+                var a = new Contacts() { Name = Name, Email = Email, Content = Content };
+
                 inputName.Text = "";
                 inpuEmail.Text = "";
                 inputContent.Text = "";
               
-                LapMain._frame.Navigate(typeof(Contact));
+                LapMain._frame.Navigate(typeof(Contact),a);
             }
 
         }

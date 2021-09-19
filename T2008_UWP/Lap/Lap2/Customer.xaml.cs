@@ -23,7 +23,7 @@ namespace T2008_UWP.Lap.Lap2
     /// </summary>
     public sealed partial class Customer : Page
     {
-        List<Custom> _data { get; set; } = new List<Custom>();
+        static List<Custom> _data { get; set; } = new List<Custom>();
 
         public Customer()
         {
@@ -38,7 +38,6 @@ namespace T2008_UWP.Lap.Lap2
                 _data.Add(c);
             }
         }
-        private static List<Custom> cus = new List<Custom>();
         private void Home(object sender, RoutedEventArgs e)
         {
             LapMain._frame.Navigate(typeof(Home));
@@ -48,10 +47,19 @@ namespace T2008_UWP.Lap.Lap2
             LapMain._frame.Navigate(typeof(CustomerAdd));
         }
 
-     
-
-        
-
-        
+        private void Menu_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (Menu.Items != null)
+                foreach (Custom item in _data)
+                {
+                    Menu.Items.Add(item);
+                }
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Custom item = e.Parameter as Custom;
+            if (item != null)
+                _data.Add(item);
+        }
     }
 }

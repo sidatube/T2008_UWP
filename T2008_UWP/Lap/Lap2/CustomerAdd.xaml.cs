@@ -27,7 +27,6 @@ namespace T2008_UWP.Lap.Lap2
         {
             this.InitializeComponent();
         }
-        private static List<Custom> cus = new List<Custom>();
         private void Back(object sender, RoutedEventArgs e)
         {
             LapMain._frame.Navigate(typeof(Customer));
@@ -48,11 +47,11 @@ namespace T2008_UWP.Lap.Lap2
                 errors.Text = "";
                 //  string txt = inputMail.Text + "--" + inputSubject.Text + "\n --------------------------------------";
                 var m = new Custom() { Name = inputName.Text, Tel = inpuTel.Text, Gender = inputGender.Text, Address = inputAddres.Text };
-                cus.Add(m);
                 inputName.Text = "";
                 inpuTel.Text = "";
                 inputGender.Text = "";
                 inputAddres.Text = "";
+                LapMain._frame.Navigate(typeof(Customer), m);
             }
             
         }

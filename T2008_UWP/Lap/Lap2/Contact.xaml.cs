@@ -23,36 +23,26 @@ namespace T2008_UWP.Lap.Lap2
     /// </summary>
     public sealed partial class Contact : Page
     {
-        static List<Contacts> _data  = new List<Contacts>();
-        List<Contacts> Data { get; set; }
+        static List<Contacts> Data { set; get; } = new List<Contacts>();
         public Contact()
         {
             this.InitializeComponent();
-            loadData();
-            Data = _data;
-        }
-        public Contact(string Name,string Email,string Content) : this()
-        {
-            _data.Add(new Contacts() { Name = Name, Email = Email, Content = Content });
-
-        }
-        public void loadData()
-        {
-            if (_data.Count == 0)
+            if (Data.Count == 0)
             {
                 var a = new Contacts() { Name = "BCT", Email = "BCT@gmail.com", Content = "Test1" };
                 var b = new Contacts() { Name = "HAT", Email = "HAT@gmail.com", Content = "Tse2" };
                 var c = new Contacts() { Name = "TDQ", Email = "TDQ@gmail.com", Content = "Ttse3" };
-                _data.Add(a);
-                _data.Add(b);
-                _data.Add(c);
-            }
-            else
-            {
-                Data = _data;
+                Data.Add(a);
+                Data.Add(b);
+                Data.Add(c);
+
             }
         }
+        public Contact(string Name, string Email, string Content) : this()
+        {
+            Menu.Items.Add(new Contacts() { Name = Name, Email = Email, Content = Content });
 
+        }
         public void Home(object sender, RoutedEventArgs e)
         {
             LapMain._frame.Navigate(typeof(Home));
@@ -76,17 +66,33 @@ namespace T2008_UWP.Lap.Lap2
             {
                 errors.Text = "";
                 //  string txt = inputMail.Text + "--" + inputSubject.Text + "\n --------------------------------------";               
-               
-                _data.Add(new Contacts() { Name = inputName.Text, Email = inpuEmail.Text, Content = inputContent.Text });
+
+                Data.Add(new Contacts() { Name = inputName.Text, Email = inpuEmail.Text, Content = inputContent.Text });
 
                 inputName.Text = "";
                 inpuEmail.Text = "";
                 inputContent.Text = "";
-                Data = _data;
-                
+
+
             }
 
         }
 
+        private void Menu_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            if (Menu.Items != null)
+                foreach (Contacts item in Data)
+                {
+                    Menu.Items.Add(item);
+                }
+
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Contacts item = e.Parameter as Contacts;
+            if (item != null)
+                Data.Add(item);
+        }
     }
 }
