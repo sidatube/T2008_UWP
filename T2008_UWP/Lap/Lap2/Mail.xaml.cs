@@ -32,7 +32,7 @@ namespace T2008_UWP.Lap.Lap2
             {
                 var a = new Mails() { Title = "BCT", Email = "BCT@gmail.com", Content = "Test1" };
                 var b = new Mails() { Title = "HAT", Email = "HAT@gmail.com", Content = "Tse2" };
-                var c = new Mails() { Title = "TDQ", Email = "TDQ@gmail.com", Content = "Ttse3" };
+                var c = new Mails() { Title = "TDsQ", Email = "TDQ@gmail.com", Content = "Ttse3" };
                 _data.Add(a);
                 _data.Add(b);
                 _data.Add(c);
